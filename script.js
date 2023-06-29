@@ -1,12 +1,10 @@
 const puppeteer = require('puppeteer');
 require('dotenv').config();
 
-var url = "https://www.linkedin.com";
-
 async function run() {
     const browser = await puppeteer.launch({headless : false}); 
     const page = await browser.newPage();
-    await page.goto(url);
+    await page.goto("https://www.linkedin.com");
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -28,6 +26,19 @@ async function run() {
     // await new Promise((resolve) => setTimeout(resolve, 2000));
     // await page.click("button.msg-form__send-button");
     // await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Comment on Tim's post
+
+    await page.goto("https://www.linkedin.com/in/tim-cai-a9b285221/recent-activity/all/");
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await page.click(".artdeco-button.artdeco-button--muted.artdeco-button--4.artdeco-button--tertiary.ember-view.social-actions-button.react-button__trigger");
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    var quote = await page.$eval(".update-components-text.relative.feed-shared-update-v2__commentary", text => text.innerText);
+    
+    await page.type(".ql-editor.ql-blank", "Thanks Tim! This has motivated me as well to " + quote.trim().substring(5, quote.length));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await page.click(".comments-comment-box__submit-button.mt3.artdeco-button.artdeco-button--1.artdeco-button--primary.ember-view");
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     await page.screenshot({path: 'linkedin.png'});
     await new Promise((resolve) => setTimeout(resolve, 2000));
