@@ -1,4 +1,20 @@
 const puppeteer = require('puppeteer');
+
+import { initializeApp } from "firebase/app";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyArTdbp4Ud5SJg0AP2cuhZLfSBkjNl6Bzc",
+  authDomain: "thank-you-tim.firebaseapp.com",
+  projectId: "thank-you-tim",
+  storageBucket: "thank-you-tim.appspot.com",
+  messagingSenderId: "811183987813",
+  appId: "1:811183987813:web:f27f97a6360aff4435fa8c"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 require('dotenv').config();
 
 async function run() {
