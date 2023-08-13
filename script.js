@@ -18,7 +18,7 @@ async function run() {
 
     // Comment on Tim's post
         
-    await page.goto("https://www.linkedin.com/in/tim-cai-a9b285221/recent-activity/all/");
+    await page.goto("https://www.linkedin.com/in/tim-cai/recent-activity/all/");
     await new Promise((resolve) => setTimeout(resolve, 2000));
         
     var likeButtonSelector = ".artdeco-button.artdeco-button--muted.artdeco-button--4.artdeco-button--tertiary.ember-view.social-actions-button.react-button__trigger";
