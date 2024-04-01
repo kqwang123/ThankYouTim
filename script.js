@@ -29,7 +29,7 @@ async function run() {
         await page.click(likeButtonSelector);
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        var quote = await page.$eval(".comments-comment-box-comment__text-editor", text => text.innerText);
+        var quote = await page.$eval(".update-components-text.relative.update-components-update-v2__commentary", text => text.innerText);
             
         await page.type(".ql-editor.ql-blank", "Thanks Tim! This has motivated me as well to " + quote.trim().substring(5, quote.length));
         await new Promise((resolve) => setTimeout(resolve, 2000));
