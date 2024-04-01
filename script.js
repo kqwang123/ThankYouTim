@@ -24,12 +24,12 @@ async function run() {
     var likeButtonSelector = ".artdeco-button.artdeco-button--muted.artdeco-button--4.artdeco-button--tertiary.ember-view.social-actions-button.react-button__trigger";
     var ariaLabel = await page.$eval(likeButtonSelector, (element) => element.getAttribute("aria-label"));
 
-    if (ariaLabel == "React Like to Tim Cai’s post") {
+    if (ariaLabel == "React Like") {
             
         await page.click(likeButtonSelector);
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        var quote = await page.$eval(".update-components-text.relative.feed-shared-update-v2__commentary", text => text.innerText);
+        var quote = await page.$eval(".comments-comment-box-comment__text-editor", text => text.innerText);
             
         await page.type(".ql-editor.ql-blank", "Thanks Tim! This has motivated me as well to " + quote.trim().substring(5, quote.length));
         await new Promise((resolve) => setTimeout(resolve, 2000));
